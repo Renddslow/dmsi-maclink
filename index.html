@@ -88,11 +88,15 @@
                 outline: none !important;
             }
 
-            a {
+            p {
                 text-align: center;
                 margin: 0 auto;
                 width: max-content;
                 display: block;
+            }
+
+            p#link {
+                font-weight: bold;
             }
         </style>
     </head>
@@ -106,7 +110,8 @@
                 </div>
                 <button onclick="convertLink()">Macify</button>
             </div>
-            <a href="#" id="link" target="_blank"></a>
+            <p>To use the link below open <strong>Finder</strong> and use the shortcut <strong>Cmd ⌘</strong> + <strong>Shift</strong> + <strong>G</strong>, paste the link and hit <strong>Go</strong>.</p>
+            <p id="link"></p>
         </div>
         <script>
             const link = document.getElementById('link');
@@ -117,7 +122,6 @@
                 const macPath = rest.map((r) => r.split(' ').join('\ ')).join('/');
 
                 const macLink = getLink(drive, macPath);
-                link.href = macLink;
                 link.innerText = macLink;
             };
 
