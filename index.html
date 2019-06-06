@@ -98,6 +98,8 @@
 
             p#link {
                 font-weight: bold;
+                margin-top: 1rem;
+                text-decoration: underline;
             }
         </style>
     </head>
@@ -122,12 +124,11 @@
                 const [drive, ...rest] = input.value.split('\\');
                 const macPath = rest.map((r) => r.split(' ').join('\ ')).join('/');
 
-                const macLink = getLink(drive, macPath);
-                link.innerText = macLink;
+                link.innerText = getLink(drive, macPath);
             };
 
             const getLink = (drive, macPath) => {
-            	const base = `file:///Volumes/omaha`;
+            	const base = `/Volumes/omaha`;
             	switch(drive.toLowerCase()) {
                     case 'i:': return `${base}/Platte/${macPath}`;
                     case 'j:': return `${base}/DataFile/${macPath}`;
